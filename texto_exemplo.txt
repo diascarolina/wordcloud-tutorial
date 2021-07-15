@@ -1,0 +1,132 @@
+Vacinação no Brasil: O que Aprendemos com o Surto de Sarampo em 2014
+Introdução
+Já é de conhecimento de todos que o principal assunto dos últimos meses, nos quais estamos vivendo em uma pandemia de Covid-19, é a vacinação. Diariamente checamos a quantidade de pessoas já vacinadas e aguardamos ansiosamente o momento em que poderemos dizer “Estou imunizado contra a Covid (com a PIFAIZÊR)”. Mas será que já enfrentamos algo parecido? Em uma escala global talvez não nos últimos 20 anos, mas em uma escala regional não é a primeira vez que ficamos à mercê de doenças que poderiam ser evitadas e controladas com uma vacinação efetiva.
+É nesse contexto que torna-se relevante olharmos para o passado e estudarmos casos anteriores de doenças que foram superadas com vacinas, as chamadas doenças imunopreveníveis, para que possamos traçar um paralelo com os dias de hoje, pois, como diria aquela famosa frase atribuída ao filósofo irlandês Edmund Burke, “Aqueles que não conhecem a história estão fadados a repeti-la.” Pelo surgimento e avanço de grupos anti-vacina e pelo comportamento de quem deveria estar liderando o país, parece que essa lição não foi totalmente aprendida.
+Assim, dividimos o projeto em duas partes. Na primeira iniciamos com uma análise geral sobre os imunizantes mais aplicados e utilizados no calendário vacinal brasileiro, como uma forma de panorama geral sobre o Programa Nacional de Imunizações (PNI). Na segunda parte, focaremos nossa atenção no surto de sarampo ocorrido entre 2013 e 2015 nos estados de Pernambuco e no Ceará, buscando um paralelo, com lições e aprendizados que esse momento pode ter trazido para a atual pandemia de Covid-19 (ou, no caso, a falta de “aprendizado”).
+Obs. Os códigos utilizados e as referências podem ser encontrados no repositório do projeto no Github.
+Dados
+Os dados utilizados nas análises foram obtidos através do dados abertos do Sistema Único de Saúde (SUS), mais especificamente os dados do Programa Nacional de Imunizações (PNI). Criado em 1973 pelo Ministério da Saúde, o PNI tem como objetivo coordenar as ações de imunizações em todo o território nacional, traçando diretrizes e prestando serviços integrais de saúde através de sua rede própria. É uma ferramenta essencial para a manutenção da saúde pública brasileira, tendo sido responsável por erradicar ou controlar diversas doenças imunopreveníveis, como o sarampo, a Hepatite B, e a Poliomielite.
+Esses dados foram atualizados pela última vez em 04/09/2019. Uma versão mais recente desses dados pode ser encontrada nessa página do DATASUS que teve última atualização em 10/06/2021. Uma nova análise futura poderá utilizar esses dados mais recentes. Para uma melhor organização, coloquei a parte de limpeza dos dados em um notebook separado, onde os dados brutos eram importados e, após tratados, eram exportados em novos arquivos .csv limpos.
+Notebook em que foi feita a limpeza dos dados brutos
+Também há um documento com as Notas Técnicas para os dados. Nele encontramos a origem e a descrição de algumas variáveis presentes nos dados.
+Então vamos às análises.
+Parte 1: Vacinação Geral no Brasil
+Aqui nessa primeira parte daremos um panorama geral de como andam as coberturas vacinais no país no período de 1994 a 2019, além de analisarmos quais as vacinas mais aplicadas em números absolutos. Para termos uma base para seguir nessa análise, levantamos duas hipóteses:
+Hipótese 1: A cobertura vacinal vem crescendo anualmente em todo o país.
+Hipótese 2: Vacinas que devem ser aplicadas em bebês logo após o nascimento, como a BCG e da Hepatite B, principalmente, possuem maior cobertura vacinal e também maior valor absoluto de aplicações.
+Cobertura Vacinal por Região do Brasil, de 1994 a 2019
+Aqui iremos considerar a cobertura vacinal de todos os imunizantes presentes na base de dados. Esse total é a média de todos os 26 imunizantes (aqui considerando também a quantidade de doses que cada um necessita para oferecer uma imunização completa).
+Muitos dos imunizantes tiveram um determinado período em que foram utilizados no calendário vacinal brasileiro, como, por exemplo, a vacina Dupla Viral, que esteve presente de 2001 a 2004, vindo a ser substituída pela Tríplice Viral, como pode ser conferido nas Notas Técnicas.
+Vamos fazer algumas análises gráficas em cima desses dados.
+Cobertura Vacinal no Brasil de 1994 a 2019
+Algumas considerações e observações que obtemos não só desse gráfico, mas também do conhecimento que temos da base de dados:
+Os dados foram atualizados pela última vez em 04/09/2019, como visto no próprio site. Ou seja, as informações sobre 2019 estão incompletas, por isso há uma queda nesses últimos anos, por falta de dados.
+O que aconteceu em 2016 que explique uma queda tão brusca na cobertura vacinal? Pelo nosso conhecimento dessa base de dados do Governo, sabemos que os dados sofreram diversas mudanças de infraestrutura ao longo dos anos, até mesmo com inserção duplicada de valores e corrigidas posteriormente. Isso tudo é explicado nas notas de rodapé do site de onde os dados brutos foram retirados. Então esse ano atípico de 2016 pode muito bem ser explicado por inconsistências na base de dados. Mas isso é só uma especulação, não podemos ter certeza sem uma pesquisa mais a fundo.
+De 1994 até 2015, aproximadamente, parece que temos dados mais consistentes. Vamos então observar esse período de tempo.
+Cobertura Vacinal no Brasil de 1994 a 2015
+Agora fica mais fácil observar como se comportou a cobertura vacinal no Brasil nesse período. De 1994 a 1999, é evidente que houve uma grande alta na porcentagem analisada. De 1999 a 2013, houve uma certa estabilidade nesse valor, apenas com um pequeno aumento em 2011. A partir de 2013 até 2015, já voltamos a ter uma subida acentuada na cobertura vacinal.
+Seria isso suficiente para responder à nossa Hipótese 1 de que a cobertura vacinal vem crescendo anualmente em todo o país?
+Por mais que tenhamos saído de uma média de menos de 40% em 1994 e chegado a quase 100% em 2015, de um ano para o outro também ocorreram diversas quedas nesse número. No geral podemos afirmar que sim, houve um expressivo aumento na cobertura vacinal de 1994 a 2015, mas não anualmente, e sim como um todo.
+Cobertura Vacinal e Valor Absoluto por Imunizante no Brasil em 2015
+Agora vamos avaliar a cobertura vacinal de cada vacina específica. Como 2015 é o ano que atingiu maior cobertura vacinal em todo o período analisado, vamos utilizá-lo para análise.
+Cobertura Vacinal por Tipo de Imunizante em 2015
+Esse gráfico já nos ajuda a validar a Hipótese 2, pois vemos que realmente as vacinas que possuem uma maior cobertura vacinal são aquelas aplicadas em recém-nascidos, como a vacina BCG e a da Hepatite B, entre outras.
+Vacinas com valores de 0% na cobertura vacinal tiveram sua aplicação finalizada antes do período analisado, a saber, 2015.
+Para completarmos a Hipótese 2, basta analisarmos os valores absolutos dos imunizantes aplicados. Vamos lá?! Para isso, usarei a soma total de todas as aplicações de imunizantes de 1994 a 2019.
+Just for fun, antes de partimos pro clássico gráfico de barras, vamos tentar visualizar esses dados com uma wordcloud.
+Wordcloud do Imunizantes Mais Aplicados no Brasil por Total de Doses, de 1994 a 2019
+Confesso que essa não é a melhor visualização para o momento, mas se formos nos basear pelo tamanho da fonte, que é como é feita a leitura de uma wordcloud, vemos que a vacina BCG e a da Poliomielite são as mais aplicadas, em valores absolutos, seguidas pelo imunizante DPT. Vamos confirmar isso em uma visualização mais tradicional abaixo.
+Finalmente podemos validar nossa Hipótese 2 a partir dos dados desse gráfico e dos dados obtidos:
+Vacinas que devem ser aplicadas em bebês logo após o nascimento, como a BCG e da Hepatite B, principalmente, possuem maior cobertura vacinal e também maior valor absoluto de aplicações.
+Observamos que os imunizantes BCG, Poliomielite e DTP foram os mais aplicados, em valores absolutos, no Brasil, de 1994 a 2019. Esses são, justamente, os aplicados em recém-nascidos.
+Isso se explica pois, ao serem aplicados já na maternidade, não há o risco de esquecimento ou falta de vontade para a aplicação dessas vacinas, como ocorre frequentemente com outras que são aplicadas em pessoas adultas.
+Linha do Tempo da Vacinação no Brasil, de 1994 a 2019
+Para finalizarmos nossa contextualização geral sobre a vacinação no Brasil de 1994 a 2019 (ano da última atualização dos dados), vamos observar uma linha do tempo de quando cada vacina foi introduzida do calendário vacinal.
+Linha do Tempo da Introdução de Algumas Vacinas no Calendário Vacinal Brasileiro a partir de 1994
+Essas informações podem ser encontradas nas Notas Técnicas sobre as Imunizações.
+É relevante notar que grande parte dos imunizantes foram introduzidos antes de 1994 (início da contabilização dos dados nessa base) e continuam os mesmos até a data de atualização em 2019. Esses são, por exemplo:
+BCG (Contra Tuberculose);
+FA (Contra Febre Amarela);
+HB (Contra Hepatite B);
+VOP (Oral Contra Poliomielite);
+DTP (Tríplice Bacteriana).
+Parte 2: Surto de Sarampo em Pernambuco e no Ceará em 2014
+De dezembro de 2013 a outubro de 2015 houve um surto de Sarampo no Brasil. Esse aumento significativo de casos localizou-se, principalmente, nos estados de Pernambuco e Ceará, ambos com inúmeros casos após quase 15 anos sem nenhum caso da doença. Tivemos a seguinte quantidade de casos em cada estado:
+Quantidade de Casos de Sarampo em Pernambuco e no Ceará de 2013 a 2015
+Só com essa tabela já conseguimos identificar que o surto iniciou-se em Pernambuco em 2013 e espalhou-se no Ceará em 2014.
+Reportagem do G1 de 26/01/2014 sobre o surto de sarampo no Ceará
+Metade desses casos foram detectados em menores de 1 ano de vida e a maioria entre pessoas sem esquema vacinal completo. Claramente a forma correta de lidar com essa situação foi intensificar a vacinação, principalmente nas áreas mais afetadas, mas também em todo o país, para evitar que a doença se espalhasse ainda mais para outros estados. E foi exatamente isso que foi feito e que analisaremos a seguir.
+Mas o que é o Sarampo?
+O sarampo é uma doença infecciosa grave muito comum, principalmente em crianças. Causada pelo Morbili Vírus, essa doença é transmitida por secreções das vias respiratórias, ou seja, pela tosse ou espirro de pessoas infectadas. O período entre o contágio e o aparecimento dos primeiros sintomas é de aproximadamente 12 dias, mas a transmissão pode ocorrer antes mesmo do aparecimento dos sintomas iniciais.
+Esses sintomas incluem tosse, febre, irritação nos olhos, espirros e coriza, além de intenso mal-estar. Em casos mais graves, a febre se agrava e também começam a aparecer as manchas na pele, um dos sintomas mais conhecidos da doença.
+Vacinas contra o Sarampo
+Existe mais de uma vacina que protege contra o sarampo, cada uma aplicada em situações ou períodos específicos do calendário vacinal, de acordo com a idade ou situação do cartão de vacina individual. Cabe ao profissional da saúde analisar qual a mais adequada para ser aplicada. Essas são:
+Dupla viral: protege do vírus do sarampo e da rubéola. Pode ser utilizada para o bloqueio vacinal em situação de surto;
+Tríplice viral: protege do vírus do sarampo, caxumba e rubéola;
+Tetra viral: protege do vírus do sarampo, caxumba, rubéola e varicela (catapora).
+Dados
+Aqui fizemos a mesma obtenção de dados que na Parte 1 da análise, no próprio site do DATASUS/TABNET. As mudanças mais relevantes foram no tipo de imunizante escolhido e nos estados selecionados. Para os imunizantes foram selecionados os que protegem contra o sarampo, a saber:
+021 Tríplice Viral D1
+098 Tríplice Viral D2
+097 Tetra Viral (SRC + VZ)
+018 Sarampo
+E na seleção de estados, como era de se esperar, foram selecionados Pernambuco e Ceará.
+Análise do Surto de Sarampo de 2014
+Como dito anteriormente, para realizarmos nossas análises utilizaremos os dados de casos de Sarampo em Pernambuco e no Ceará, além dos dados de Cobertura Vacinal e de números absolutos dos imunizantes aplicados contra o sarampo, a saber, as vacinas dupla, tríplice e tetra viral.
+Antes disso, podemos levantar algumas hipóteses para nos ajudar a seguir por um caminho nos dados.
+Hipótese 1: Antes do surto de sarampo iniciado em 2013, a cobertura vacinal de imunizantes contra o sarampo estava relativamente baixa a vários anos.
+Hipótese 2: Durante o surto de sarampo, de 2013 a 2015, a quantidade de vacinas aplicadas contra o sarampo aumentou bastante nos dois estados analisados e, como consequência, os casos diminuíram.
+Casos de Sarampo de 1990 a 2019 em Pernambuco e no Ceará
+Casos de Sarampo em Pernambuco de 1990 a 2019
+Fica claro nesse gráfico os períodos em que ocorreram surtos da doença em Pernambuco, como em 1991, de 1996 até 1999 e o de 2013 a 2015. Como estamos nos focando neste último, o destacamos. Também há um aumento no número de casos a partir de 2019.
+Casos de Sarampo no Ceará de 1990 a 2019
+Para uma visualização mais precisa, vamos analisar o gráfico iniciando no ano de 1994, mesmo ano no qual faremos as comparações com os imunizantes. Isso será feito para termos uma melhor escala no gráfico, já que a partir dos anos 90 tivemos valores bastante elevados no número de casos de sarampo no Ceará, chegando a quase 5 mil casos em 1991.
+Casos de Sarampo no Ceará de 1994 a 2019
+Agora temos uma melhor visão do períodos de surtos de sarampo no Ceará. Um de 1996 a 1998, e o que estamos analisando, de 2013 a 2015.
+Cobertura Vacinal Contra o Sarampo em Pernambuco e no Ceará
+A cobertura vacinal representa a porcentagem de pessoas do público-alvo imunizadas contra a doença. Um bom parâmetro para que as doenças parem de se espalhar é uma cobertura vacinal de 95%. Vamos então conferir como estava a cobertura vacinal contra o sarampo nos dois estados analisados.
+Cobertura Vacinal Contra o Sarampo em Pernambuco de 1994 a 2019
+Aqui vemos que mesmo antes do período em que ocorreu o surto de sarampo, a cobertura vacinal era de 100%, mas que teve um declínio no início desse surto, o que pode ter levado à doença a ter se espalhado na região, antes de obtermos uma nova cobertura vacinal alta e controlar o surto.
+Cobertura Vacinal Contra o Sarampo no Ceará de 1994 a 2019
+Aqui ocorre exatamente a mesma situação que ocorreu em Pernambuco, a cobertura vacinal teve diminuição no período anterior ao surto, permitindo que a doença se espalhasse. Como medida de combate ao surto, a cobertura vacinal aumentou e o surto foi controlado. Isso já nos ajuda com a nossa primeira hipótese de que:
+Antes do surto de sarampo iniciado em 2013, a cobertura vacinal de imunizantes contra o sarampo estava relativamente baixa a vários anos.
+Isso não é verdade, estávamos com um longo período de cobertura vacinal a 100%, mas bastou um único ano com cobertura vacinal abaixo de 95% para que a doença se alastrasse pelos estados analisados.
+Mas me parece que analisarmos pela Cobertura Vacinal não é a melhor opção para enxergarmos uma comparação com os casos de sarampo. Uma melhor opção seria olharmos para a quantidade de doses aplicadas.
+Será que a quantidade de doses aplicadas de imunizantes contra o sarampo aumenta em períodos nos quais ocorrem surtos da doença?
+Valor Absoluto das Doses Aplicadas de Vacinas contra o Sarampo em Pernambuco e no Ceará
+Antes de fazermos a comparação das doses aplicadas contra a quantidade de casos, vamos observar apenas os valores absolutos da quantidade de doses aplicadas de imunizantes contra o sarampo nesses dois estados.
+Quantidade de Doses Aplicadas Contra o Sarampo em Pernambuco de 1994 a 2019
+Quantidade de Doses Aplicadas Contra o Sarampo no Ceará de 1994 a 2019
+Agora sim podemos ver uma melhor tendência ao utilizar a quantidade de doses aplicadas. Fica claro que houve um aumento substancial no número de doses aplicadas em Pernambuco e no Ceará no período de 2013 a 2015, no qual ocorreu o surto de sarampo nesses estados.
+Também é evidente que essas aplicações dos imunizantes ocorreram de forma bastante acelerada. Vejamos quantas doses foram aplicadas no ápice do surto em cada estado, no ano de 2014:
+Em 2014 foram aplicadas 413.394 doses de imunizantes contra o Sarampo em Pernambuco e 503.619 doses no Ceará.
+A média de doses aplicadas contra o Sarampo entre 1994 e 2019 em Pernambuco foi de 216.214 e no Ceará a média foi de 230.200 doses.
+Com essas informações fica claro que o número de doses aplicadas de imunizantes contra o sarampo foi mais do que duas vezes a média nos dois estados analisados entre 1994 e 2019.
+Comparação das Doses Aplicados e do Número de Casos de Sarampo
+Por último, vamos fazer uma comparação direta entre o número de casos de sarampo e a quantidade de doses aplicadas de imunizantes contra o sarampo.
+Casos de Sarampo vs. Doses Aplicadas em Pernambuco de 1994 a 2019
+Casos de Sarampo vs. Doses Aplicadas no Ceará de 1994 a 2019
+O efeito das vacinas contra o sarampo utilizadas no Brasil inicia-se a partir de duas semanas, então, na escala de tempo, esse efeito é quase imediato e isso pode ser visto claramente através dos dois gráficos anteriores. Logo após termos um aumento expressivo na quantidade de doses de imunizantes aplicados contra o sarampo, os casos confirmados durante o surto de sarampo diminuíram drasticamente até serem zerados por completo.
+Baseando-se pelas Coberturas Vacinais, no mesmo período também foi atingido mais de 95% dessa cobertura. Ou seja, mais de 95% das pessoas que faziam parte do público-alvo receberam a aplicação das vacinas e estavam potencialmente imunizadas. Esse foi o fator determinante para o controle e dizimação do surto ocorrido em 2013 e 2014 em Pernambuco e no Ceará.
+Analisamos apenas esse período já citado, que vai do fim de 2013 até o início de 2015, mas também poderíamos citar os períodos de 1997 a 1999, que tiveram um aumento expressivo de casos e, mais atualmente, o período a partir de 2018 que vem também enfrentando uma alta nos casos de sarampo, a maior desde 1999.
+Com isso, chegamos à nossa hipótese 2:
+Durante o surto de sarampo, de 2013 a 2015, a quantidade de vacinas aplicadas contra o sarampo aumentou bastante nos dois estados analisados e, como consequência, os casos diminuíram.
+Verdade, como pode ser visto claramente nos dois gráficos anteriores. Aumentando a quantidade de doses aplicadas e, consequentemente, a cobertura vacinal, o surto foi controlado e os dois estados e o Brasil se viu novamente livre da doença: Eliminação do sarampo no Brasil tem anúncio internacional.
+Conclusão
+Vimos que no período de 2013 a 2015 dois estados brasileiros sofreram com um surto de sarampo após não registrarem nenhum caso a quase 15 anos. Esses estados foram Pernambuco e Ceará. Tivemos a seguintes distribuição de casos entre 2013 e 2015:
+Pernambuco: 224 casos;
+Ceará: 728 casos.
+Nesse período, se intensificaram as ações de combate à doença, aumentando a cobertura vacinal e a quantidade de doses aplicadas de vacinas contra o sarampo.
+Em 2014 foram aplicadas 413.394 doses de imunizantes contra o Sarampo em Pernambuco e 503.619 doses no Ceará. A média de doses aplicadas contra o Sarampo entre 1994 e 2019 em Pernambuco foi de 216.214 e no Ceará a média foi de 230.200 doses.
+Com essas informações fica claro que o número de doses aplicadas de imunizantes contra o sarampo no ano de 2014, pico no número de doses, foi mais do que duas vezes a média nos dois estados analisados entre 1994 e 2019.
+Conseguimos analisar também duas hipóteses:
+Hipótese 1: Antes do surto de sarampo iniciado em 2013, a cobertura vacinal de imunizantes contra o sarampo estava relativamente baixa a vários anos.
+Isso não é verdade, estávamos com um longo período de cobertura vacinal a 100%, mas bastou um único ano com cobertura vacinal abaixo de 95% para que a doença se alastrasse pelos estados analisados.
+Hipótese 2: Durante o surto de sarampo, de 2013 a 2015, a quantidade de vacinas aplicadas contra o sarampo aumentou bastante nos dois estados analisados e, como consequência, os casos diminuíram.
+Verdade, como pode ser visto claramente nos dois gráficos anteriores. Aumentando a quantidade de doses aplicadas e, consequentemente, a cobertura vacina, o surto foi controlado e os dois estados e o Brasil se viu novamente livre da doença.
+O que aprendemos com isso?
+É indisputável que a imunização é totalmente necessária para superarmos doenças que já possuem vacinas. O surto de sarampo de 2013 a 2015 foi completamente controlado após a aplicação em massa de vacinas em todo o público-alvo no estados de Pernambuco e do Ceará, impedindo que ele se espalhasse para outros estados do Brasil.
+Fazendo um paralelo com o momento atual de pandemia da Covid-19, sonhamos com o dia que teremos uma Cobertura Vacinal acima de 95% contra essa doença, pois essa é a única forma de obtermos sucesso no enfrentamento do coronavírus.
+Resumindo: VACINA JÁ!
+Os códigos utilizados e as referências podem ser encontrados no repositório do projeto no Github.
+Qualquer dúvida, dica ou sugestão ficarei feliz em recebê-las: LinkedIn.
